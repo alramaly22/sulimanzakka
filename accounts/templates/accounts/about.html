@@ -1,0 +1,572 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== FAVICON ===============-->
+    <link rel="shortcut icon" href="{% static 'assets/img/logo.png' %}" type="image/x-icon">
+
+    <!--=============== REMIXICONS ===============-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+
+    <!--=============== SWIPER CSS ===============-->
+    <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.min.css' %}">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/navmain.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+    <title>Sulieman</title>
+<style>
+    .custom-select-wrapper {
+        position: relative;
+        width: 110px;
+        font-family: Arial, sans-serif;
+    }
+
+    .custom-select {
+        background-color: #1f1f1f;
+        color: #fff;
+        padding: 10px 12px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        border: 1px solid #333;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .custom-select img {
+        width: 22px;
+        height: 15px;
+        border-radius: 3px;
+        margin-right: 8px;
+    }
+
+    .custom-options {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #1f1f1f;
+        border: 1px solid #333;
+        border-radius: 10px;
+        margin-top: 5px;
+        display: none;
+        z-index: 10;
+    }
+
+    .custom-options.show {
+        display: block;
+    }
+
+    .custom-option {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        cursor: pointer;
+        transition: background 0.2s ease;
+    }
+
+    .custom-option:hover {
+        background-color: #333;
+    }
+
+    .custom-option img {
+        width: 22px;
+        height: 15px;
+        border-radius: 3px;
+        margin-right: 10px;
+    }
+
+    .custom-select i {
+        margin-left: auto;
+        color: #00ffd5;
+    }
+</style>
+</head>
+
+
+<body>
+    <!-- HTML -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <img src="{% static 'assets/img/suleiman.png' %}" alt="Muscle Icon" class="logo-icon" />
+            <div class="letters-container">
+                <span class="letter">S</span>
+                <span class="letter">U</span>
+                <span class="letter">L</span>
+                <span class="letter">I</span>
+                <span class="letter">M</span>
+                <span class="letter">A</span>
+                <span class="letter">N</span>
+            </div>
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+                <div class="loading-message">
+                    <span class="load-letter">L</span>
+                    <span class="load-letter">o</span>
+                    <span class="load-letter">a</span>
+                    <span class="load-letter">d</span>
+                    <span class="load-letter">i</span>
+                    <span class="load-letter">n</span>
+                    <span class="load-letter">g</span>
+                    <span class="load-letter">&nbsp;</span>
+                    <span class="load-letter">w</span>
+                    <span class="load-letter">e</span>
+                    <span class="load-letter">b</span>
+                    <span class="load-letter">s</span>
+                    <span class="load-letter">i</span>
+                    <span class="load-letter">t</span>
+                    <span class="load-letter">e</span>
+                    <span class="load-letter">.</span>
+                    <span class="load-letter">.</span>
+                    <span class="load-letter">.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--==================== HEADER ====================-->
+    <header class="header header-hidden" id="header">
+        <a href="{% url 'index' %}" style="width: 120px;" class="header__logo">
+            <img src="{% static 'assets/img/logo.png' %}" alt="" class="nav__image1">
+        </a>
+
+        <ion-icon name="menu-outline" class="header__toggle" id="nav-toggle"></ion-icon>
+            <div class="custom-select-wrapper">
+                <div class="custom-select" onclick="toggleSelect()">
+                    <img id="selected-flag" src="https://flagcdn.com/us.svg" alt="Flag" />
+                    <span id="selected-lang">English</span>
+                    {% comment %} <i class="fa-solid fa-chevron-down"></i> {% endcomment %}
+                </div>
+                <div class="custom-options" id="custom-options">
+                    <div class="custom-option" data-lang="en" onclick="selectLang('en')">
+                        <img src="https://flagcdn.com/us.svg" alt="English" />
+                        <span>English</span>
+                    </div>
+                    <div class="custom-option" data-lang="ar" onclick="selectLang('ar')">
+                        <img src="https://flagcdn.com/sa.svg" alt="Arabic" />
+                        <span>العربية</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Select مخفي مربوط بتغيير اللغة -->
+            <select id="language-selector" style="display: none;">
+                <option value="en" selected>English</option>
+                <option value="ar">Arabic</option>
+            </select>
+        <nav class="nav" id="nav-menu">
+            <div class="nav__content bd-grid">
+
+                <ion-icon name="close-outline" class="nav__close" id="nav-close"></ion-icon>
+
+                <div class="nav__perfil">
+                    <div class="nav__img">
+                        <img src="{% static 'assets/img/logo.png' %}" alt="">
+                    </div>
+                </div>
+
+                <div class="nav__menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="{% url 'index' %}" class="nav__link active" data-lang="navhome">Home</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link" data-lang="navabout">About</a></li>
+                        <li class="nav__item"><a href="{% url 'index' %}#tranding" class="nav__link" data-lang="navtransformation">Transformation</a></li>
+                        <li class="nav__item"><a href="#testimonial" class="nav__link" data-lang="navtestimonial">Testimonial</a></li>
+                        <li class="nav__item"><a href="{% url 'calc' %}" class="nav__link" data-lang="navcalculatot">Calculator</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link" data-lang="navcontact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav__social">
+                    <a href="https://www.facebook.com/profile.php?id=100008387749380&ref=_ig_profile_ac" class="nav__social-icon">
+                        <i class="ri-facebook-fill"></i></a>
+                    <a href="https://www.instagram.com/suleimanalzaka/" class="nav__social-icon">
+                        <i class="ri-instagram-line"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@SulimanZakka" class="nav__social-icon">
+                        <i class="ri-youtube-fill"></i>
+                    </a>
+                    <i class="ri-moon-line change-theme nav__social-icon2" id="theme-button"></i>
+                    
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <!--==================== MAIN ====================-->
+    <main class="main">
+        <!--==================== HOME ====================-->
+        <section class="home" id="home">
+            <div class="video-container">
+                <video class="home__video" autoplay muted loop>
+                    <source src="{% static 'assets/img/V1.mp4' %}" type="video/mp4">
+                </video>
+                <div class="video-overlay"></div>
+            </div>
+
+            <div class="home__img"></div>
+
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <h1 class="home__title" data-lang="homeindex2">
+                        The Story Behind the Champion
+                    </h1>
+
+                    <a href="{% url 'index' %}#pric" class="btn-dna-bg">
+                        <span data-lang="homebutton2">Join My Team</span>
+                    </a>
+                </div>
+
+                <div class="home__social">
+                    <span class="home__social-follow">Follow Us</span>
+
+                    <div class="home__social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100008387749380&ref=_ig_profile_ac" target="_blank" class="home__social-link">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/" target="_blank" class="home__social-link">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.instagram.com/suleimanalzaka/" target="_blank" class="home__social-link">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@SulimanZakka" target="_blank" class="home__social-link">
+                            <i class="ri-youtube-fill"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== social ====================-->
+        <div class="social section">
+            <div class="social__container">
+                <div class="social__content">
+                    <i class="ri-tiktok-fill social__icon"></i>
+                    <span class="social__tooltip social__tooltip-top">+ 31K</span>
+                </div>
+
+                <div class="social__content">
+                    <i class="ri-instagram-line social__icon"></i>
+                    <span class="social__tooltip social__tooltip-bottom">+ 870K </span>
+                </div>
+
+                <div class="social__content">
+                    <i class="ri-youtube-fill social__icon"></i>
+                    <span class="social__tooltip social__tooltip-top">+ 2000</span>
+                </div>
+            </div>
+        </div>
+        <!--==================== ABOUT ====================-->
+        <section class="about2 section" id="about">
+            <div class="about__container2 container grid">
+                <div class="about__data2">
+                    <h2 class="section__title"  data-lang="abouth22">
+                        More About Sulieman
+                    </h2>
+                    <div class="about__highlight-box">
+                        <i class="ri-star-s-fill about__icon"></i>
+                        <p class="about__description2" data-lang="aboutp2">
+                            Coach Sulieman is a respected bodybuilding champion with over 15 years of experience and multiple titles including Mr. Syria, Mr. Sydney, and Mr. Australia. He also competed in the prestigious Arnold Classic. Trained by the renowned Dr. George Farah,
+                            Sulieman has helped hundreds of clients worldwide transform their bodies and lives. Based in Sydney, he combines expert knowledge with personal dedication to deliver real, lasting fitness results. Whether you're aiming to compete
+                            or simply get in your best shape, Coach Sulieman’s guidance and proven methods will help you reach your goals.
+                        </p>
+
+                    </div>
+
+                    <!-- <a href="#" class="button"></a> -->
+                </div>
+                <div class="about__image2">
+                    <img src="{% static 'assets/img/personal2.webp' %}" alt="" class="about__img2">
+                    <div class="about__shadow"></div>
+                </div>
+            </div>
+        </section>
+        <!--==================== TESTIMONIAL ====================-->
+        <section style="background: transparent;" class="testimonial section" id="testimonial">
+            <h2 class="section__title" data-lang="tesimonial">
+                Customer Opinions
+            </h2>
+            <div class="testimonial__container container">
+                <div class="testimonial__swiper swiper">
+                    <div class="swiper-wrapper">
+                        <article class="testimonial__card swiper-slide">
+                            <!-- <img src="assets/img/20240913_125308.jpg" alt="" class="testimonial__img"> -->
+                            <h2 class="testimonial__title" data-lang="testimonialname1">Jake Turner</h2>
+                            <p class="testimonial__description"data-lang="testimonialdescription1">
+                                Coach Suliman’s the real deal. Dude knows exactly how to push you without breaking you. I’ve never felt stronger or more motivated!
+                            </p>
+                            <div class="testimonial__stars">
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                            </div>
+                        </article>
+                        <article class="testimonial__card swiper-slide">
+                            <!-- <img src="assets/img/DSC_1315.JPG" alt="" class="testimonial__img"> -->
+                            <h2 class="testimonial__title" data-lang="testimonialname2">Emma Johnson
+                            </h2>
+                            <p class="testimonial__description" data-lang="testimonialdescription2">
+                                Suliman’s training changed my whole mindset. Chill guy, but he’s serious when it comes to results. Can’t recommend him enough!
+                            </p>
+                            <div class="testimonial__stars">
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                            </div>
+                        </article>
+                        <article class="testimonial__card swiper-slide">
+                            <!-- <img src="assets/img/DSC04022.jpg" alt="" class="testimonial__img"> -->
+                            <h2 class="testimonial__title" data-lang="testimonialname3">Markus Schmidt</h2>
+                            <p class="testimonial__description" data-lang="testimonialdescription3">
+                                Been training with Coach Suliman for months now — crazy progress! He’s got that perfect balance of tough love and real care.
+                            </p>
+                            <div class="testimonial__stars">
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                            </div>
+                        </article>
+                        <article class="testimonial__card swiper-slide">
+                            <!-- <img src="assets/img/20240913_132559.jpg" alt="" class="testimonial__img"> -->
+                            <h2 class="testimonial__title" data-lang="testimonialname4">Sophie Martin</h2>
+                            <p class="testimonial__description" data-lang="testimonialdescription4">
+                                If you want results and a coach who actually cares, Suliman’s your man. The workouts are hard but fun, and he always checks in to keep you on track.
+                            </p>
+                            <div class="testimonial__stars">
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--==================== INFORMATION ====================-->
+        <section id="stats" class="section stats__section">
+            <div class="container">
+                <h2 class="section__title" style="color: var(--first-color); text-transform: uppercase;" data-lang="information1">
+                    Sulieman — Sydney’s Top Online Coach
+                </h2>
+                <p style="text-align:center; color: white; max-width: 700px; margin: 0 auto 3rem auto;" data-lang="information2">
+                    With over 15 years of experience and more than 12 championship titles, including Mr. Sydney, Mr. Australia, and Arnold Classic competitor, Sulieman has transformed over 50 clients worldwide. His personalized training programs are designed to fit your
+                    unique goals — no cookie-cutter plans here.
+                </p>
+                <div class="grid stats__grid">
+                    <div class="stats__item">
+                        <h3 class="stats__number" data-target="15">0</h3>
+                        <p data-lang="information3">Years of Coaching</p>
+                    </div>
+                    <div class="stats__item">
+                        <h3 class="stats__number" data-target="20">0</h3>
+                        <p data-lang="information4">Championship Titles Won</p>
+                    </div>
+                    <div class="stats__item">
+                        <h3 class="stats__number" data-target="50">0</h3>
+                        <p data-lang="information5">Clients Transformed Worldwide</p>
+                    </div>
+                </div>
+                <div style="text-align:center; margin-top: 2rem;">
+                    <a href="{% url 'index' %}#pric" class="button" data-lang="informationbutton">
+                        Get Started
+                    </a>
+                </div>
+
+            </div>
+        </section>
+        <!-- ==================== Calc  ==================== -->
+        <section class="features section" data-aos="fade-left">
+            <div class="choose__container container grid">
+                <img src="{% static 'assets/img/personal3.webp' %}" alt="" class="choose__img">
+
+                <div class="choose__contect">
+                    <div class="choose__data">
+                        <h2 style="    color: var(--first-color);" class="section__title" data-lang="choose1">
+                            why choose us
+                        </h2>
+
+                    </div>
+                    <div class="choose__faq">
+                        <div class="choose__faq-item">
+                            <div class="choose__faq-header">
+                                <div class="choose__faq-icon">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                                <h3 class="choose__faq-title" data-lang="choose2">How quickly can I see results?</h3>
+                            </div>
+                            <div class="choose__faq-content">
+                                <p class="choose__faq-description" data-lang="choose3">
+                                    You can start seeing noticeable changes in your body within a few weeks. With my customized training and nutrition plans, many clients achieve significant transformations in a short period.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="choose__faq-item">
+                            <div class="choose__faq-header">
+                                <div class="choose__faq-icon">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                                <h3 class="choose__faq-title" data-lang="choose4">Can I really transform my body?</h3>
+                            </div>
+                            <div class="choose__faq-content">
+                                <p class="choose__faq-description" data-lang="choose5">
+                                    Absolutely! I've helped numerous clients completely transform their bodies and lives. Whether you want to build muscle, lose weight, or prepare for a competition, my programs are designed to deliver results.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="choose__faq-item">
+                            <div class="choose__faq-header">
+                                <div class="choose__faq-icon">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                                <h3 class="choose__faq-title" data-lang="choose6">What makes your programs different?</h3>
+                            </div>
+                            <div class="choose__faq-content">
+                                <p class="choose__faq-description" data-lang="choose7">
+                                    My programs are personalized to fit your specific goals and lifestyle. I provide daily support and guidance to ensure you're on track, making it easier to achieve your desired body transformation.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="choose__faq-item">
+                            <div class="choose__faq-header">
+                                <div class="choose__faq-icon">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                                <h3 class="choose__faq-title" data-lang="choose8">How do you support clients during their transformation?</h3>
+                            </div>
+                            <div class="choose__faq-content">
+                                <p class="choose__faq-description" data-lang="choose9">
+                                    I offer daily WhatsApp follow-ups to provide constant motivation and adjust your plan as needed. This hands-on approach helps ensure you're making progress and staying motivated throughout your journey.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--==================== CONTACT ====================-->
+        <section class="contact section" id="contact">
+            <div class="contact__container container grid">
+                <div class="contact__content">
+                    <h2 class="section__title contact__title" data-lang="contact1">
+                        Let’s get in touch and start your journey!
+
+                    </h2>
+                    <form action="" class="contact__form grid">
+                        <div class="contact__inputs grid">
+                            <div class="contact__box">
+                                <label for="name" class="contact__label" data-lang="name">Names</label>
+                                <input id="name" type="text" placeholder="Enter Names" class="contact__input">
+
+                            </div>
+                            <div class="contact__box">
+                                <label for="email" class="contact__label" data-lang="email">Email</label>
+                                <input id="email" type="email" placeholder="Enter Email" class="contact__input">
+                            </div>
+                        </div>
+                        <button style="border-radius: 2rem 1rem 2rem 1rem;" class="button contact__button" data-lang="send">
+                            SEND EMAIL
+                        </button>
+                    </form>
+                </div>
+                    <img src="{% static 'assets/img/personal5.webp' %}" alt="" class="contact__img">
+            </div>
+        </section>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer style="background: var(--section-color);" class="footer">
+        <div class="footer__container container grid">
+            <a href="#" class="footer__logo" data-lang="footername">SULIEMAN</a>
+            <ul class="footer__links">
+                <li>
+                    <a href="#contact" class="footer__link" data-lang="footer1">Contact</a>
+                </li>
+                <li>
+                    <a href="{% url 'about' %}" class="footer__link" data-lang="footer2">About</a>
+                </li>
+                <li>
+                    <a href="{% url 'calc' %}" class="footer__link" data-lang="footer3">Calculator</a>
+                </li>
+                <li>
+                    <a href="{% url 'index' %}" class="footer__link" data-lang="footer4">Home</a>
+                </li>
+            </ul>
+
+            <div class="footer__social">
+                <a target="_blank" href="https://www.facebook.com/profile.php?id=100008387749380&ref=_ig_profile_ac" class="footer__social-link">
+                    <i class="ri-facebook-fill"></i>
+                </a>
+                <a href="https://www.instagram.com/suleimanalzaka/" target="_blank" class="footer__social-link">
+                    <i class="ri-instagram-line"></i>
+                </a>
+                <a href="https://www.youtube.com/@SulimanZakka" target="_blank" class="footer__social-link">
+                    <i class="ri-youtube-fill"></i>
+                </a>
+            </div>
+        </div>
+        <span class="footer__copy">
+            &#169; All Rights Reserved By Moalramaly
+        </span>
+    </footer>
+
+        <!--========== SCROLL UP ==========-->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class="ri-arrow-up-double-line"></i>
+        </a>
+
+        <!--=============== SCROLLREVEAL ===============-->
+        <script src="{% static 'assets/js/navall.js' %}"></script>
+        <script src="{% static 'assets/js/nav.js' %}"></script>
+        <script src="{% static 'assets/js/language.js' %}"></script>
+        <!--=============== SWIPER JS ===============-->
+        <script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
+
+        <!--=============== IONICONS ===============-->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+        <!--=============== MAIN JS ===============-->
+        <script src="{% static 'assets/js/main.js' %}"></script>
+    <script>
+        window.addEventListener("load", () => {
+            let loopInterval = setInterval(() => {
+                if (document.readyState === "complete") {
+                    loader.style.opacity = "0";
+                    loader.style.transition = "opacity 0.6s ease";
+                    setTimeout(() => {
+                        loader.style.display = "none";
+
+                        // 🟢 أظهر الهيدر بعد التحميل
+                        const header = document.querySelector(".header");
+                        if (header) {
+                            header.classList.remove("header-hidden");
+                        }
+
+                    }, 600);
+                    clearInterval(loopInterval);
+                } else {
+                    resetAnimations();
+                }
+            }, 3500);
+        });
+    </script>
+</body>
+
+</html>

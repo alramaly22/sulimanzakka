@@ -1,0 +1,832 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== FAVICON ===============-->
+    <link rel="shortcut icon" href="{% static 'assets/img/logo.png' %}" type="image/x-icon">
+
+    <!--=============== REMIXICONS ===============-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+
+    <!--=============== SWIPER CSS ===============-->
+    <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.min.css' %}">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/navmain.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+    <title>Sulieman</title>
+<style>
+    .custom-select-wrapper {
+        position: relative;
+        width: 110px;
+        font-family: Arial, sans-serif;
+    }
+
+    .custom-select {
+        background-color: #1f1f1f;
+        color: #fff;
+        padding: 10px 12px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        border: 1px solid #333;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .custom-select img {
+        width: 22px;
+        height: 15px;
+        border-radius: 3px;
+        margin-right: 8px;
+    }
+
+    .custom-options {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #1f1f1f;
+        border: 1px solid #333;
+        border-radius: 10px;
+        margin-top: 5px;
+        display: none;
+        z-index: 10;
+    }
+
+    .custom-options.show {
+        display: block;
+    }
+
+    .custom-option {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        cursor: pointer;
+        transition: background 0.2s ease;
+    }
+
+    .custom-option:hover {
+        background-color: #333;
+    }
+
+    .custom-option img {
+        width: 22px;
+        height: 15px;
+        border-radius: 3px;
+        margin-right: 10px;
+    }
+
+    .custom-select i {
+        margin-left: auto;
+        color: #00ffd5;
+    }
+</style>
+
+</head>
+
+
+<body>
+    <!-- ========== HTML ========== -->
+    <!-- <div id="preloader">
+        <div class="loader-wrapper">
+            <div class="glow-ring"></div>
+            <img src="assets/img/logo.png" alt="Suliman Logo" class="loader-logo" />
+        </div>
+    </div> -->
+    <!-- <div id="preloader">
+        <span class="letter" style="--x: -300px; --y: -200px">S</span>
+        <span class="letter" style="--x: 300px; --y: -100px">U</span>
+        <span class="letter" style="--x: -250px; --y: 300px">L</span>
+        <span class="letter" style="--x: 250px; --y: -250px">I</span>
+        <span class="letter" style="--x: -200px; --y: 200px">M</span>
+        <span class="letter" style="--x: 200px; --y: -200px">A</span>
+        <span class="letter" style="--x: -150px; --y: 100px">N</span>
+    </div> -->
+    <!-- top  -->
+    <!-- <div id="preloader">
+        <div class="letters-container">
+            <span class="letter">S</span>
+            <span class="letter">U</span>
+            <span class="letter">L</span>
+            <span class="letter">I</span>
+            <span class="letter">M</span>
+            <span class="letter">A</span>
+            <span class="letter">N</span>
+        </div>
+    </div> -->
+    <!-- HTML -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <img src="{% static 'assets/img/suleiman.png' %}" alt="Muscle Icon" class="logo-icon" />
+            <div class="letters-container">
+                <span class="letter">S</span>
+                <span class="letter">U</span>
+                <span class="letter">L</span>
+                <span class="letter">I</span>
+                <span class="letter">M</span>
+                <span class="letter">A</span>
+                <span class="letter">N</span>
+            </div>
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+                <div class="loading-message">
+                    <span class="load-letter">L</span>
+                    <span class="load-letter">o</span>
+                    <span class="load-letter">a</span>
+                    <span class="load-letter">d</span>
+                    <span class="load-letter">i</span>
+                    <span class="load-letter">n</span>
+                    <span class="load-letter">g</span>
+                    <span class="load-letter">&nbsp;</span>
+                    <span class="load-letter">w</span>
+                    <span class="load-letter">e</span>
+                    <span class="load-letter">b</span>
+                    <span class="load-letter">s</span>
+                    <span class="load-letter">i</span>
+                    <span class="load-letter">t</span>
+                    <span class="load-letter">e</span>
+                    <span class="load-letter">.</span>
+                    <span class="load-letter">.</span>
+                    <span class="load-letter">.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--==================== HEADER ====================-->
+    <header class="header header-hidden" id="header">
+        <a href="{% url 'index' %}" style="width: 120px;" class="header__logo">
+            <img src="{% static 'assets/img/logo.png' %}" alt="" class="nav__image1">
+        </a>
+
+        <ion-icon name="menu-outline" class="header__toggle" id="nav-toggle"></ion-icon>
+            <div class="custom-select-wrapper">
+                <div class="custom-select" onclick="toggleSelect()">
+                    <img id="selected-flag" src="https://flagcdn.com/us.svg" alt="Flag" />
+                    <span id="selected-lang">English</span>
+                    {% comment %} <i class="fa-solid fa-chevron-down"></i> {% endcomment %}
+                </div>
+                <div class="custom-options" id="custom-options">
+                    <div class="custom-option" data-lang="en" onclick="selectLang('en')">
+                        <img src="https://flagcdn.com/us.svg" alt="English" />
+                        <span>English</span>
+                    </div>
+                    <div class="custom-option" data-lang="ar" onclick="selectLang('ar')">
+                        <img src="https://flagcdn.com/sa.svg" alt="Arabic" />
+                        <span>العربية</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Select مخفي مربوط بتغيير اللغة -->
+            <select id="language-selector" style="display: none;">
+                <option value="en" selected>English</option>
+                <option value="ar">Arabic</option>
+            </select>
+
+        <nav class="nav" id="nav-menu">
+            <div class="nav__content bd-grid">
+
+                <ion-icon name="close-outline" class="nav__close" id="nav-close"></ion-icon>
+
+                <div class="nav__perfil">
+                    <div class="nav__img">
+                        <img src="{% static 'assets/img/logo.png' %}" alt="">
+                    </div>
+                </div>
+
+                <div class="nav__menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active" data-lang="navhome">Home</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link" data-lang="navabout">About</a></li>
+                        <li class="nav__item"><a href="#tranding" class="nav__link" data-lang="navtransformation">Transformation</a></li>
+                        <li class="nav__item"><a href="#testimonial" class="nav__link" data-lang="navtestimonial">Testimonial</a></li>
+                        <li class="nav__item"><a href="{% url 'calc' %}" class="nav__link" data-lang="navcalculatot">Calculator</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link" data-lang="navcontact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav__social">
+                    <a href="https://www.facebook.com/profile.php?id=100008387749380&ref=_ig_profile_ac" class="nav__social-icon">
+                        <i class="ri-facebook-fill"></i></a>
+                    <a href="https://www.instagram.com/suleimanalzaka/" class="nav__social-icon">
+                        <i class="ri-instagram-line"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@SulimanZakka" class="nav__social-icon">
+                        <i class="ri-youtube-fill"></i>
+                    </a>
+                    <i class="ri-moon-line change-theme nav__social-icon2" id="theme-button"></i>
+                    
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+        <!--==================== HOME ====================-->
+        <section class="home" id="home">
+            <div class="video-container">
+                <video class="home__video" autoplay muted loop>
+                    <source src="{% static 'assets/img/V1.mp4' %}" type="video/mp4">
+                </video>
+                <div class="video-overlay"></div>
+            </div>
+
+            <div class="home__img"></div>
+
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <h1 class="home__title" data-lang="homeindex1">
+                        Master Your Body with a Champion
+                    </h1>
+
+                    <a href="#pric" class="button button--flex" data-lang="homebutton">
+                        Get Start
+                    </a>
+                </div>
+
+                <div class="home__social">
+                    <span class="home__social-follow">Follow Us</span>
+
+                    <div class="home__social-links">
+                        <a href="https://www.facebook.com/" target="_blank" class="home__social-link">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/" target="_blank" class="home__social-link">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank" class="home__social-link">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="https://www.youtube.com/" target="_blank" class="home__social-link">
+                            <i class="ri-youtube-fill"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== social ====================-->
+        <div class="social section">
+            <div class="social__container">
+                <div class="social__content">
+                    <i class="ri-tiktok-fill social__icon"></i>
+                    <span class="social__tooltip social__tooltip-top">+ 5K</span>
+                </div>
+
+                <div class="social__content">
+                    <i class="ri-instagram-line social__icon"></i>
+                    <span class="social__tooltip social__tooltip-bottom">+ 33K </span>
+                </div>
+
+                <div class="social__content">
+                    <i class="ri-youtube-fill social__icon"></i>
+                    <span class="social__tooltip social__tooltip-top">+ 1000</span>
+                </div>
+            </div>
+        </div>
+        <!--==================== ABOUT ====================-->
+        <section class="about section" id="about">
+            <h2 class="section__title" data-lang="about1">About Me</h2>
+            <div class="about__container container grid">
+            <img src="{% static 'assets/img/personal4.webp' %}" alt="" class="about__img">
+                <div class="about__data">
+                    <p class="about__description" data-lang="about2"> Unlock your full potential with a coach who’s transformed champions worldwide. With over 15 years of unmatched experience, proven programs, and thousands of success stories — your fitness journey starts here.</p>
+                    <div class="about__info">
+                        <div>
+                            <span class="about__info-title" data-lang="m15">15+</span>
+                            <span class="about__info-name"><p class="about__info-name" data-lang="years"> Years</p><p class="about__info-name" data-lang="experience"> Experience</p></span>
+                        </div>
+                        <div>
+                            <span class="about__info-title" data-lang="m20">20+</span>
+                            <span class="about__info-name"><p class="about__info-name" data-lang="championships">Championships</p><p class="about__info-name" data-lang="won">Won</p></span>
+                        </div>
+                        <div>
+                            <span class="about__info-title" data-lang="m50">50+</span>
+                            <span class="about__info-name"><p class="about__info-name" data-lang="global">Global</p><p class="about__info-name" data-lang="clients">Clients</p></span>
+                        </div>
+                    </div>
+                    <div class="about__buttons">
+                            <a href="{% url 'about' %}" class="button button--flex button__ghost"data-lang="aboutbutton586">
+                            Know More
+                            </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--==================== FAVORITE ====================-->
+        <section id="tranding">
+            <div class="containero">
+                <h3 data-lang="transformation" class="section__title" >Transformation</h3>
+            </div>
+            <div class="containero">
+                <div class="swiper tranding-slider">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide tranding-slide">
+                            <div class="tranding-slide-img">
+                                <img src="{% static 'assets/img/trans2.webp' %}" alt="Tranding">
+                            </div>
+                            <div class="tranding-slide-content">
+                                <div class="tranding-slide-content-bottom">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide tranding-slide">
+                            <div class="tranding-slide-img">
+                                <img src="{% static 'assets/img/trans1.webp' %}" alt="Tranding">
+                            </div>
+                            <div class="tranding-slide-content">
+                                <div class="tranding-slide-content-bottom">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide tranding-slide">
+                            <div class="tranding-slide-img">
+                                <img src="{% static 'assets/img/trans3.webp' %}" alt="Tranding">
+                            </div>
+                            <div class="tranding-slide-content">
+                                <div class="tranding-slide-content-bottom">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide tranding-slide">
+                            <div class="tranding-slide-img">
+                                <img src="{% static 'assets/img/trans4.webp' %}" alt="Tranding">
+                            </div>
+                            <div class="tranding-slide-content">
+                                <div class="tranding-slide-content-bottom">
+                                    <h3 class="food-rating">
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide tranding-slide">
+                            <div class="tranding-slide-img">
+                                <img src="{% static 'assets/img/trans5.webp' %}" alt="Tranding">
+                            </div>
+                            <div class="tranding-slide-content">
+                                <div class="tranding-slide-content-bottom">
+                                    <h3 class="food-rating">
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide tranding-slide">
+                            <div class="tranding-slide-img">
+                                <img src="{% static 'assets/img/trans6.webp' %}" alt="Tranding">
+                            </div>
+                            <div class="tranding-slide-content">
+                                <div class="tranding-slide-content-bottom">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="tranding-slider-control">
+                        <div class="swiper-button-prev slider-arrow">
+                            <ion-icon name="arrow-back-outline"></ion-icon>
+                        </div>
+                        <div class="swiper-button-next slider-arrow">
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!--==================== TESTIMONIAL ====================-->
+        <section class="testimonial section" id="testimonial">
+            <h2 class="section__title"  data-lang="tesimonial">
+                Customer Opinions
+            </h2>
+            <div class="testimonial__container container">
+                <div class="testimonial__swiper swiper">
+                    <div class="swiper-wrapper">
+                        <article class="testimonial__card swiper-slide">
+                            <!-- <img src="assets/img/20240913_125308.jpg" alt="" class="testimonial__img"> -->
+                            <h2 class="testimonial__title"  data-lang="testimonialname1">Jake Turner</h2>
+                            <p class="testimonial__description" data-lang="testimonialdescription1">
+                                Coach Suliman’s the real deal. Dude knows exactly how to push you without breaking you. I’ve never felt stronger or more motivated!
+                            </p>
+                            <div class="testimonial__stars">
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                            </div>
+                        </article>
+                        <article class="testimonial__card swiper-slide">
+                            <!-- <img src="assets/img/DSC_1315.JPG" alt="" class="testimonial__img"> -->
+                            <h2 class="testimonial__title" data-lang="testimonialname2">Emma Johnson
+                            </h2>
+                            <p class="testimonial__description" data-lang="testimonialdescription2">
+                                Suliman’s training changed my whole mindset. Chill guy, but he’s serious when it comes to results. Can’t recommend him enough!
+                            </p>
+                            <div class="testimonial__stars">
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                            </div>
+                        </article>
+                        <article class="testimonial__card swiper-slide">
+                            <!-- <img src="assets/img/DSC04022.jpg" alt="" class="testimonial__img"> -->
+                            <h2 class="testimonial__title" data-lang="testimonialname3">Markus Schmidt</h2>
+                            <p class="testimonial__description" data-lang="testimonialdescription3">
+                                Been training with Coach Suliman for months now — crazy progress! He’s got that perfect balance of tough love and real care.
+                            </p>
+                            <div class="testimonial__stars">
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                            </div>
+                        </article>
+                        <article class="testimonial__card swiper-slide">
+                            <!-- <img src="assets/img/20240913_132559.jpg" alt="" class="testimonial__img"> -->
+                            <h2 class="testimonial__title" data-lang="testimonialname4">Sophie Martin</h2>
+                            <p class="testimonial__description" data-lang="testimonialdescription4">
+                                If you want results and a coach who actually cares, Suliman’s your man. The workouts are hard but fun, and he always checks in to keep you on track.
+                            </p>
+                            <div class="testimonial__stars">
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                                <i class="ri-gemini-fill"></i>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--==================== Pricing ====================-->
+        <section class="ppric" id="pric">
+            <section class="pricing containercard grid">
+                <h2  class="section__title" data-lang="pricing">PRICING & PLANS</h2>
+
+                <div class="pricing__container grid">
+
+                    <!-- CARD 1 - Bronze -->
+                    <article class="pricing__content price1 grid">
+                        <div class="pricing__pricing">
+                            <div class="pricing__pricing-number">
+                                <span data-lang="rightprice1" class="pricing__pricing-symbolo">$600</span>
+                            </div>
+                            <span data-lang="pris2" class="pricing__pricing-month">3month</span>
+                        </div>
+
+                        <header class="pricing__header">
+                            <div class="pricing__header-circle grid">
+                                <img src="{% static 'assets/img/free-coin.webp' %}" alt="" class="pricing__header-img">
+                            </div>
+
+                            <span data-lang="prisbr" class="pricing__header-subtitle">Bronze</span>
+                            <h1 data-lang="prisbas2" class="centerpricing pricing__header">currently inactive</h1>
+                        </header>
+
+                        <ul class="pricing__list grid">
+                            <!-- كل المميزات -->
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p data-lang="prisilvep1">📩 Daily WhatsApp Follow-Up</p></li>
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p data-lang="prisilvep2">📘 Workout Plan (PDF)</p></li>
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p data-lang="prisilvep3">🥗 Personalized Nutrition Plan</p></li>
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p data-lang="prisilvep4">🍳 Healthy Cooking eBook</p></li>
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p data-lang="prisilvep5">💊 Supplement Guidance</p></li>
+                        </ul>
+                        <form style="display: contents;" action="{% url 'create_checkout_session' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="price_id" value="price_1RhoZcLc3ja42ivyyt80KV7n">
+                        <button type="submit" class="button pricing__button"  data-lang="pricebutton">
+                            Join now
+                        </button>
+                    </form>
+                        {% comment %} <a href="https://buy.stripe.com/7sY3cwfsQ7XI7ry2hi1RC00" data-lang="subscr" class="button pricing__button">Join now <i class="ri-compass-discover-fill"></i></a> {% endcomment %}
+                    </article>
+
+                    <!-- CARD 2 - Silver -->
+                    <article class="pricing__content price2 grid">
+                        <div class="pricing__pricing">
+                            <div class="pricing__pricing-number">
+                                <span data-lang="rightprice2" class="pricing__pricing-symbolo">$1000</span>
+                            </div>
+                            <span data-lang="pris4" class="pricing__pricing-month">6month</span>
+                        </div>
+
+                        <header class="pricing__header">
+                            <div class="pricing__header-circle grid">
+                                <img src="{% static 'assets/img/enterprise-coin.webp' %}" alt="" class="pricing__header-img">
+                            </div>
+                            <span data-lang="prisilv" class="pricing__header-subtitle">Silver</span>
+                            <h1 data-lang="pripr" class="pricing__header-title">Professional</h1>
+                        </header>
+
+                        <ul class="pricing__list grid">
+                            <!-- كل المميزات -->
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p data-lang="prisilvep1">📩 Daily WhatsApp Follow-Up</p></li>
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p data-lang="prisilvep2">📘 Workout Plan (PDF)</p></li>
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p data-lang="prisilvep3">🥗 Personalized Nutrition Plan</p></li>
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p data-lang="prisilvep4">🍳 Healthy Cooking eBook</p></li>
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p data-lang="prisilvep5">💊 Supplement Guidance</p></li>
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p data-lang="prisilvep6">🔄 Plan Adjustments Every 14 Days</p></li>
+                        </ul>
+                    <form style="display: contents;" action="{% url 'create_checkout_session' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="price_id" value="price_1RhociLc3ja42ivy29uoJ38c">
+                        <button type="submit" class="button pricing__button" data-lang="pricebutton">
+                            Join now
+                        </button>
+                    </form>
+                        {% comment %} <a href="https://buy.stripe.com/7sY3cwfsQ7XI7ry2hi1RC00" data-lang="subscr" class="button pricing__button">Join now <i class="ri-compass-discover-fill"></i></a> {% endcomment %}
+                    </article>
+
+                    <!-- CARD 3 - Gold -->
+                    <article class="pricing__content price3 grid">
+                        <div class="pricing__pricing">
+                            <div class="pricing__pricing-number">
+                                <span data-lang="rightprice3" class="pricing__pricing-symbolo"> $2000</span>
+                            </div>
+                            <span data-lang="pris6" class="pricing__pricing-month">1year</span>
+                        </div>
+
+                        <header class="pricing__header">
+                            <div class="pricing__header-circle grid">
+                                <img src="{% static 'assets/img/pro-coin.webp' %}" alt="" class="pricing__header-img">
+                            </div>
+                            <span data-lang="prigold" class="pricing__header-subtitle">Gold</span>
+                            <h1 data-lang="prient" class="pricing__header-title">Enterprise</h1>
+                        </header>
+
+                        <ul class="pricing__list grid">
+                            <!-- كل المميزات -->
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p data-lang="prisilvep1">📩 Daily WhatsApp Follow-Up</p></li>
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p data-lang="prisilvep2">📘 Workout Plan (PDF)</p></li>
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p data-lang="prisilvep3">🥗 Personalized Nutrition Plan</p></li>
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p data-lang="prisilvep4">🍳 Healthy Cooking eBook</p></li>
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p data-lang="prisilvep5">💊 Supplement Guidance</p></li>
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p data-lang="prisilvep6">🔄 Plan Adjustments Every 14 Days</p></li>
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p data-lang="prisilvep7">📈 Monthly Progress Reports</p></li>
+                        </ul>
+                    <form style="display: contents;" action="{% url 'create_checkout_session' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="price_id" value="price_1RhodMLc3ja42ivyy0ZU7Hez">
+                        <button type="submit" class="button pricing__button"  data-lang="pricebutton">
+                            Join now
+                        </button>
+                    </form>
+                        {% comment %} <a href="https://buy.stripe.com/7sY3cwfsQ7XI7ry2hi1RC00" data-lang="subscr" class="button pricing__button">Join now <i class="ri-compass-discover-fill"></i></a> {% endcomment %}
+                    </article>
+
+                    <!-- CARD 4 - Platinum -->
+                    <article class="pricing__content price4 grid">
+                        <div style="position: absolute; background: var(--first-color); width: 146px; height: 101px; right: 1.5rem; top: -1rem; padding-top: 0.5rem; text-align: center;" class="pricing__pricing">
+                            <div class="pricing__pricing-number">
+                                <span class="pricing__pricing-symbolo" data-lang="mostexclusive">🔥 Most Exclusive Offer</span>
+                            </div>
+                            <span class="pricing__pricing-month" data-lang="maximizeyourresults">💪 Maximize Your Results</span>
+                        </div>
+
+                        <header class="pricing__header">
+                            <div class="pricing__header-circle grid">
+                                <img src="{% static 'assets/img/Platinum.png' %}" alt="" class="pricing__header-img">
+                            </div>
+                            <span class="pricing__header-subtitle" data-lang="platinum">Platinum</span>
+                            <h1 class="pricing__header-title" data-lang="private">Private Coaching</h1>
+                        </header>
+
+                        <ul class="pricing__list grid">
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p  data-lang="platinum1">Customized training program</p></li>
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p  data-lang="platinum2">Full nutrition tracking</p></li>
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p  data-lang="platinum3">In-person sessions</p></li>
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p  data-lang="platinum4">Progress tracking and feedback</p></li>
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p  data-lang="platinum5">Cooking & nutrition eBooks</p></li>
+                            <li class="pricing__list-item"><i class="ri-check-double-line pricing__list-icon"></i><p  data-lang="platinum6">Supplement & lifestyle guidance</p></li>
+                        </ul>
+<div class="grid" style="row-gap: 0.75rem;">
+    <form style="display: contents;" action="{% url 'create_checkout_session' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="price_id" value="price_1Rhoe8Lc3ja42ivyvJ6AOtAf">
+        <button type="submit" class="button pricing__button">A$1000 – 5 days/week</button>
+    </form>
+
+    <form style="display: contents;" action="{% url 'create_checkout_session' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="price_id" value="price_1RhoeqLc3ja42ivypzDGwQBI">
+        <button type="submit" class="button pricing__button">A$750 – 3–4 days/week</button>
+    </form>
+
+    <form style="display: contents;" action="{% url 'create_checkout_session' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="price_id" value="price_1RhofkLc3ja42ivygZ0MdHGN">
+        <button type="submit" class="button pricing__button">A$80 – Per Single Session</button>
+    </form>
+</div>
+
+                    </article>
+
+                </div>
+            </section>
+        </section>
+        <!-- ==================== Calc  ==================== -->
+        <section class="calculator-section section" id="calculator">
+            <div class="container calculator__container">
+                <div class="calculator__content">
+                    <h2 class="section__title"  data-lang="calculator1">Track Your Calories Like a Pro!</h2>
+                    <p class="calculator-description" data-lang="calculator2">
+                        Our smart calorie calculator helps you understand exactly how much your body needs to lose fat, build muscle, or stay in shape. It's simple, fast, and accurate!
+                    </p>
+                    <ul class="calculator-list">
+                        <li data-lang="calculator33">Enter your weight, height, age, and gender.</li>
+                        <li data-lang="calculator4">Select your activity level.</li>
+                        <li data-lang="calculator5">Instantly get your daily calorie needs and macros breakdown.</li>
+                        <li data-lang="calculator6">Use the result to plan your meals and reach your fitness goals!</li>
+                    </ul>
+                    <a href="calc.html" class=" button" data-lang="calculator3">Start Now</a>
+                </div>
+
+                <div class="calculator__image">
+                    <img src="{% static 'assets/img/clacphoto.png' %}" alt="Calorie Calculator Image">
+                </div>
+            </div>
+        </section>
+        <!--==================== CONTACT ====================-->
+        <section class="contact section" id="contact">
+            <div class="contact__container container grid">
+                <div class="contact__content">
+                    <h2 class="section__title contact__title" data-lang="contact1">
+                        Let’s get in touch and start your journey!
+
+                    </h2>
+                    <form action="" class="contact__form grid">
+                        <div class="contact__inputs grid">
+                            <div class="contact__box">
+                                <label for="name" class="contact__label" data-lang="name">Names</label>
+                                <input id="name" type="text" placeholder="Enter Names" class="contact__input">
+
+                            </div>
+                            <div class="contact__box">
+                                <label for="email" class="contact__label" data-lang="email">Email</label>
+                                <input id="email" type="email" placeholder="Enter Email" class="contact__input">
+                            </div>
+                        </div>
+                        <button style="border-radius: 2rem 1rem 2rem 1rem;" class="button contact__button" data-lang="send">
+                            SEND EMAIL
+                        </button>
+                    </form>
+                </div>
+                    <img src="{% static 'assets/img/personal5.webp' %}" alt="" class="contact__img">
+            </div>
+        </section>
+        <!--==================== Gym ====================-->
+        <section class="section ss" id="dna-gym">
+            <div class="container grid dna__grid">
+                <div class="dna__content">
+                    <h2 class="section__title"><p class="section__title" data-lang="gym22">Welcome to</p> <span class="highlight" data-lang="gym23">DNA Gym</span></h2>
+                    <p class="dna__description" data-lang="gym21">
+                        Located in the heart of Sydney, Australia, DNA Gym started as a private facility and has now opened its doors to the public. With a <strong>modern interior</strong>, <strong>spacious layout</strong>, and <strong>top-tier equipment</strong>,
+                        this gym offers a premium workout experience for all levels.
+                    </p>
+                    <ul class="dna__features">
+                        <li><i class="ri-map-pin-2-fill"></i> <p data-lang="gym1">6/47 Allingham Street, Condell Park</p></li>
+                        <li><i class="ri-building-line"></i><p data-lang="gym2"> Clean & stylish design, big space</p></li>
+                        <li><i class="ri-dumbbell-fill"></i><p data-lang="gym3"> Premium machines & gym equipment</p></li>
+                        <li><i class="ri-user-star-line"></i><p data-lang="gym4"> Programs by Coach Sulieman himself</p></li>
+                    </ul>
+                    <!-- <a href="#pric" class="button">See Membership Plans <i class="ri-arrow-right-line"></i></a> -->
+                </div>
+
+                <div class="dna__image">
+                    <img src="{% static 'assets/img/z.png' %}" alt="DNA Gym" class="dna__img" />
+                </div>
+            </div>
+        </section>
+    </main>
+    <!--==================== FOOTER ====================-->
+        <footer class="footer">
+            <div class="footer__container container grid">
+                <a href="#" class="footer__logo" data-lang="footername">SULIEMAN</a>
+                <ul class="footer__links">
+                    <li>
+                        <a href="#contact" class="footer__link" data-lang="footer1">Contact</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'about' %}" class="footer__link" data-lang="footer2">About</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'calc' %}" class="footer__link" data-lang="footer3">Calculator</a>
+                    </li>
+                    <li>
+                        <a href="#home" class="footer__link" data-lang="footer4">Home</a>
+                    </li>
+                </ul>
+                <div class="footer__social">
+                    <a target="_blank" href="https://www.facebook.com/profile.php?id=100008387749380&ref=_ig_profile_ac" class="footer__social-link">
+                        <i class="ri-facebook-fill"></i>
+                    </a>
+                    <a href="https://www.instagram.com/suleimanalzaka/" target="_blank" class="footer__social-link">
+                        <i class="ri-instagram-line"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@SulimanZakka" target="_blank" class="footer__social-link">
+                        <i class="ri-youtube-fill"></i>
+                    </a>
+                </div>
+            </div>
+            <span class="footer__copy">
+                &#169; All Rights Reserved By Moalramaly
+            </span>
+        </footer>
+        <!--========== SCROLL UP ==========-->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class="ri-arrow-up-double-line"></i>
+        </a>
+
+        <!--=============== SCROLLREVEAL ===============-->
+        <script src="{% static 'assets/js/navall.js' %}"></script>
+        <script src="{% static 'assets/js/nav.js' %}"></script>
+        <script src="{% static 'assets/js/language.js' %}"></script>
+        <!--=============== SWIPER JS ===============-->
+        <script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
+
+        <!--=============== IONICONS ===============-->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+        <!--=============== MAIN JS ===============-->
+        <script src="{% static 'assets/js/main.js' %}"></script>
+
+    <script>
+        window.addEventListener("load", () => {
+            let loopInterval = setInterval(() => {
+                if (document.readyState === "complete") {
+                    loader.style.opacity = "0";
+                    loader.style.transition = "opacity 0.6s ease";
+                    setTimeout(() => {
+                        loader.style.display = "none";
+
+                        // 🟢 أظهر الهيدر بعد التحميل
+                        const header = document.querySelector(".header");
+                        if (header) {
+                            header.classList.remove("header-hidden");
+                        }
+
+                    }, 600);
+                    clearInterval(loopInterval);
+                } else {
+                    resetAnimations();
+                }
+            }, 3500);
+        });
+    </script>
+<script>
+    function toggleSelect() {
+        document.getElementById("custom-options").classList.toggle("show");
+    }
+    function selectLang(lang) {
+        const selectedFlag = document.getElementById("selected-flag");
+        const selectedLang = document.getElementById("selected-lang");
+        const selector = document.getElementById("language-selector"); // ← ده مهم
+
+        if (lang === "en") {
+            selectedFlag.src = "https://flagcdn.com/us.svg";
+            selectedLang.textContent = "English";
+            selector.value = "en"; // ← نغير قيمة الـ select
+        } else if (lang === "ar") {
+            selectedFlag.src = "https://flagcdn.com/sa.svg";
+            selectedLang.textContent = "العربية";
+            selector.value = "ar"; // ← نغيرها هنا كمان
+        }
+
+        document.getElementById("custom-options").classList.remove("show");
+
+        updateLanguage(); // ← هنا بنشغل كود تغيير اللغة فعلياً
+    }
+</script>
+
+
+<!-- عشان الأيقونات تشتغل -->
+<script src="https://kit.fontawesome.com/b7ba78db53.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

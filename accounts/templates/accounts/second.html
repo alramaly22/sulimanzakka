@@ -1,0 +1,508 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="{% static 'assets/img/logo.png' %}" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'assets/css/form.css' %}" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        #language-selector {
+            appearance: none;
+            font-weight: bolder;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border: none;
+            background: #b4862c;
+            padding: 10px;
+            border-radius: 1rem 0;
+            cursor: pointer;
+            outline: none;
+        }
+
+        #language-selector option {
+            color: #000;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <body class="block--dark">
+
+    <nav class="nav collapsible nav__form collapsible--expanded">
+        <a class="nav__brand" href="{% url 'index' %}">
+            <img src="{% static 'assets/img/logo.png' %}" alt="" class="lllo" />
+        </a>
+        <img class="nav__toggler" src="{% static 'assets/SVJ/menu-symbol-of-three-parallel-lines-svgrepo-com (1).svg' %}" alt="">
+        <ul class="list nav__list collapsible__content">
+            <li class="nav__item">
+                <a href="{% url 'index' %}" class="nav__link" data-lang="home">Home</a>
+            </li>
+            <li class="nav__item">
+                <a href="{% url 'about' %}" class="nav__link" data-lang="About">About</a>
+            </li>
+            <li class="nav__item">
+                <a href="{% url 'index' %}#tranding" class="nav__link" data-lang="Transformation">Transformation</a>
+            </li>
+            <li class="nav__item">
+                <a href="{% url 'index' %}#pric" class="nav__link" data-lang="Pricing">Pricing</a>
+            </li>
+            <li class="nav__item">
+                <a href="{% url 'calc' %}" class="nav__link" data-lang="calc">Calc</a>
+            </li>
+        </ul>
+    </nav>
+
+
+        <form name="myForm" method="post">
+            <section class="block container block-form" data-aos="fade-down">
+                <header class="block__header">
+                    <h2 data-aos="fade-down" data-lang="general">General Info</h2>
+                </header>
+                <div class="border-animation">
+                    <span class="form-span"></span>
+                    <div class="form__inputs-group" data-aos="fade-up">
+                        <div class="input-group">
+                            <span class="icon-container">
+                                <img class="kolo" src="{% static 'assets/SVJ/user-card-id-svgrepo-com.svg' %}" alt="">
+                            </span>
+                            <input class="input name" name="Name" type="text" placeholder="Name / الاسم" required />
+                        </div>
+                        <div class="input-group">
+                            <span class="icon-container">
+                                <img class="kolo" src="{% static 'assets/SVJ/gender-mark-1-svgrepo-com.svg' %}" alt="">
+                            </span>
+                            <div class="Gander__input">
+                                <label class="radio--style"><input class="input__radio" type="radio" name="Gender" id="Gender"
+                                value="Male" required /></label>
+                                <label class="input__radio-lable" for="meal1" data-lang="male">Male</label>
+                                <input class="input__radio" type="radio" name="Gender" id="Gender" value="Female" />
+                                <label class="input__radio-lable" for="meal2" data-lang="female">Female</label>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <span class="icon-container">
+                                <img class="kolo" src="{% static 'assets/SVJ/hourglass-svgrepo-com.svg' %}" alt="">
+                            </span>
+                                <input class="input" name="Age" type="text" placeholder="Age / العمر" required id="age" />
+                            </div>
+
+                        <div class="input-group">
+                            <span class="icon-container">
+                                <img class="kolo" src="{% static 'assets/SVJ/weight-scale-svgrepo-com.svg' %}" alt="">
+                            </span>
+                            <input class="input" name="Weight" type="text" placeholder="Weight / الوزن" required step="any" id="weight" />
+                        </div>
+
+                        <div class="input-group">
+                            <span class="icon-container">
+                                <img class="kolo" src="{% static 'assets/SVJ/height-svgrepo-com.svg' %}" alt="">
+                            </span>
+                            <input class="input" name="Height" type="text" placeholder="Height (Cm) / الطول (سم)" required step="any" id="height" />
+                        </div>
+
+                        <div class="input-group">
+                            <span class="icon-container">
+                                <img class="kolo" src="{% static 'assets/SVJ/wake-up-bed-svgrepo-com.svg' %}" alt="">
+                            </span>
+                            <input class="input" name="Wake up time" type="text" placeholder="Wake up time / وقت الاستيقاظ" required step="any" id="neck" />
+                        </div>
+
+                        <div class="input-group">
+                            <span class="icon-container">
+                                <img class="kolo" src="{% static 'assets/SVJ/rest-time-svgrepo-com.svg' %}" alt="">
+                            </span>
+                            <input class="input" name="sleep time" type="text" placeholder="Sleep time / وقت النوم" required step="any" id="waist" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="block container block-form-part2 block-form-part4" data-aos="fade-up">
+                <header class="block__header">
+                    <h2 data-lang="other">Other</h2>
+                </header>
+                <div class="border-animation">
+                    <span class="form-span"></span>
+                    <div class="form__inputs-group" data-aos="fade-down">
+                        <div class="question--block">
+                            <span class="icon__question">
+                                <img class="koloh" src="{% static 'assets/SVJ/trophy-svgrepo-com.svg' %}" alt="">
+                            </span>
+                            <p class="form__question">Have you participated in any previous competitions?</p>
+                            <div class="input__textarea">
+                                <textarea class="" placeholder="If yes, please mention details / إذا نعم، يرجى ذكر التفاصيل" name="Previous Competitions" rows="5" cols="33"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="question--block">
+                            <span class="icon__question">
+                                <img class="koloh" src="{% static 'assets/SVJ/goal-svgrepo-com.svg' %}" alt="">
+                            </span>
+                            <p class="form__question">Are you planning to participate in any upcoming competitions? </p>
+                            <div class="input__textarea">
+                                <textarea class="" placeholder="Please provide name/date/goal if applicable / اذكر اسم البطولة أو الهدف إن وجد" name="Upcoming Competitions" rows="5" cols="33"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="question--block">
+                            <span class="icon__question">
+                                <img class="koloh" src="{% static 'assets/SVJ/blood-test-svgrepo-com.svg' %}" alt="">
+                            </span>
+                            <p class="form__question">Do you have recent blood test results?</p>
+                            <div class="input__textarea">
+                                <textarea class="" placeholder="Describe or upload results / اذكر النتائج أو أرفقها" name="Blood Test Results" rows="5" cols="33"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="question--block">
+                            <span class="icon__question">
+                                <img class="koloh" src="{% static 'assets/SVJ/injury-hospitalization-svgrepo-com.svg' %}" alt="">
+                            </span>
+                            <p class="form__question">Do you have any current or past injuries? </p>
+                            <div class="input__textarea">
+                                <textarea class="" placeholder="Please describe in detail / اشرح بالتفصيل" name="Injuries" rows="5" cols="33"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="question--block">
+                            <span class="icon__question">
+                                <img class="koloh" src="{% static 'assets/SVJ/allergy-svgrepo-com.svg' %}" alt="">
+                            </span>
+                            <p class="form__question">Do you have any allergies to medications, supplements, or food? </p>
+                            <div class="input__textarea">
+                                <textarea class="" placeholder="Please specify / يرجى التحديد" name="Allergies" rows="5" cols="33"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="block container block-form-part2 block-form-part3" data-aos="fade-up">
+                <header class="block__header">
+                    <h2 data-lang="workout">Workout</h2>
+                </header>
+                <div class="border-animation">
+                    <span class="form-span"></span>
+                    <div class="form__inputs-group" data-aos="fade-down">
+                        <div class="question--block">
+                            <span class="icon__question">
+                                <img class="koloh" src="{% static 'assets/SVJ/heart-health-svgrepo-com.svg' %}" alt="">
+                            </span>
+                            <p class="form__question">Do you suffer from any chronic illnesses (e.g. diabetes, hypertension, heart issues)? </p>
+                            <div class="input__textarea">
+                                <textarea class="" placeholder="Please mention if applicable / اذكر إذا وجد" name="Chronic Illnesses" rows="5" cols="33"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="question--block">
+                            <span class="icon__question">
+                                <img class="koloh" src="{% static 'assets/SVJ/back-pain-svgrepo-com.svg' %}" alt="">
+                            </span>
+                            <p class="form__question">Do you have any back pain? / هل لديك آلام في الظهر؟</p>
+                            <div class="input__textarea">
+                                <textarea class="" placeholder="If yes, describe it / إذا نعم، صفه" name="Back Pain" rows="5" cols="33"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="question--block">
+                            <span class="icon__question">
+                                <img class="koloh" src="{% static 'assets/SVJ/joint-pain-svgrepo-com.svg' %}" alt="">
+                            </span>
+                            <p class="form__question">Do you have joint pain?</p>
+                            <div class="input__textarea">
+                                <textarea class="" placeholder="Explain location and intensity / اشرح الموقع وشدة الألم" name="Joint Pain" rows="5" cols="33"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="question--block">
+                            <span class="icon__question">
+                                <img class="koloh" src="{% static 'assets/SVJ/surgery-svgrepo-com.svg' %}" alt="">
+                            </span>
+                            <p class="form__question">Have you had any surgeries before? </p>
+                            <div class="input__textarea">
+                                <textarea class="" placeholder="Include type and date / اذكر نوعها وتاريخها" name="Surgery History" rows="5" cols="33"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block container sumbit-btn">
+                    <button type="button" id="submitBtn" class="btn btn--white btn--stretched" onclick="sendToWhatsApp()" data-lang="send">
+                        Submit
+                    </button>
+                </div>
+            </section>
+
+        <script>
+            function sendToWhatsApp() {
+                // رقم الكابتن الجديد
+                var phoneNumber = "+61416947373";
+
+                // جمع البيانات من الحقول المختلفة
+                var name = document.getElementsByName("Name")[0].value;
+                var gender = document.querySelector('input[name="Gender"]:checked').value;
+                var age = document.getElementsByName("Age")[0].value;
+                var weight = document.getElementsByName("Weight")[0].value;
+                var height = document.getElementsByName("Height")[0].value;
+                var wakeUpTime = document.getElementsByName("Wake up time")[0].value;
+                var sleepTime = document.getElementsByName("sleep time")[0].value;
+
+                var previousCompetitions = document.getElementsByName("Previous Competitions")[0].value;
+                var upcomingCompetitions = document.getElementsByName("Upcoming Competitions")[0].value;
+                var bloodTest = document.getElementsByName("Blood Test Results")[0].value;
+                var injuries = document.getElementsByName("Injuries")[0].value;
+                var allergies = document.getElementsByName("Allergies")[0].value;
+                var chronic = document.getElementsByName("Chronic Illnesses")[0].value;
+                var backPain = document.getElementsByName("Back Pain")[0].value;
+                var jointPain = document.getElementsByName("Joint Pain")[0].value;
+                var surgery = document.getElementsByName("Surgery History")[0].value;
+
+                // (لو ضفت الأسئلة دي فعليًا في الفورم لاحقًا، فعل السطور دي كمان)
+                // var goal = document.getElementsByName("Goal of training ?")[0].value;
+                // var cardioSchedule = document.getElementsByName("The right cardio schedule for you?")[0].value;
+                // var lastTrainingPeriod = document.getElementsByName("Last period of training?")[0].value;
+                // var mealsPerDay = document.getElementsByName("Number of meals a day ?")[0].value;
+                // var dailyRoutine = document.getElementsByName("Day Routine")[0].value;
+                // var healthProblems = document.getElementsByName("Do you have health problems?")[0].value;
+                // var exerciseDays = document.getElementsByName("How many days a week will you exercise?")[0].value;
+
+                // تكوين الرسالة
+                var message = `
+            📝 *New Client Form Submission*:
+
+            👤 الاسم: ${name}
+            🚻 الجنس: ${gender}
+            📅 العمر: ${age}
+            ⚖️ الوزن: ${weight}
+            📏 الطول: ${height}
+            🌅 وقت الاستيقاظ: ${wakeUpTime}
+            🌙 وقت النوم: ${sleepTime}
+
+            🏆 بطولات سابقة: ${previousCompetitions}
+            🎯 بطولات قادمة: ${upcomingCompetitions}
+            🩸 تحاليل دم: ${bloodTest}
+            🤕 إصابات: ${injuries}
+            🚫 حساسية: ${allergies}
+            ❤️ أمراض مزمنة: ${chronic}
+            🔙 آلام الظهر: ${backPain}
+            🦵 آلام المفاصل: ${jointPain}
+            🔪 عمليات جراحية: ${surgery}
+                `;
+
+                // تكوين رابط واتساب
+                var whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+                // فتح الرابط في نافذة جديدة
+                window.open(whatsappLink, '_blank');
+            }
+        </script>
+
+        </form>
+
+        <script src="{% static 'assets/js/new.js' %}"></script>
+        <script src="{% static 'assets/js/maino.js' %}"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+        <script src="https://kit.fontawesome.com/b7ba78db53.js" crossorigin="anonymous"></script>
+
+
+        <script>
+            const MonyTransfer = document.getElementById('MonyTransfer');
+
+            MonyTransfer.addEventListener('input', function(event) {
+                // Remove any non-Arabic or non-English digits or decimal points from the input
+                const input = event.target.value.replace(/[^\u0660-\u0669\u06F0-\u06F90-9.,\s]+/g, '');
+                // Replace any Arabic decimal points with English decimal points
+                const inputWithEnglishDecimal = input.replace(/[\u066B]/g, '.');
+                // Update the input field with the cleaned input
+                event.target.value = inputWithEnglishDecimal;
+            });
+
+            MonyTransfer.addEventListener('change', function(event) {
+                // Validate the input
+                const input = event.target.value;
+                if (!input || !/^[\u0660-\u0669\u06F0-\u06F90-9.,\s]+$/.test(input)) {
+                    alert('Please enter a valid age');
+                    event.target.value = '';
+                    event.preventDefault();
+                }
+            });
+        </script>
+        <script>
+            const age = document.getElementById('age');
+
+            age.addEventListener('input', function(event) {
+                // Remove any non-Arabic or non-English digits or decimal points from the input
+                const input = event.target.value.replace(/[^\u0660-\u0669\u06F0-\u06F90-9.,\s]+/g, '');
+                // Replace any Arabic decimal points with English decimal points
+                const inputWithEnglishDecimal = input.replace(/[\u066B]/g, '.');
+                // Update the input field with the cleaned input
+                event.target.value = inputWithEnglishDecimal;
+            });
+
+            age.addEventListener('change', function(event) {
+                // Validate the input
+                const input = event.target.value;
+                if (!input || !/^[\u0660-\u0669\u06F0-\u06F90-9.,\s]+$/.test(input)) {
+                    alert('Please enter a valid age');
+                    event.target.value = '';
+                    event.preventDefault();
+                }
+            });
+        </script>
+        <script>
+            const weight = document.getElementById('weight');
+
+            weight.addEventListener('input', function(event) {
+                // Remove any non-Arabic or non-English digits or decimal points from the input
+                const input = event.target.value.replace(/[^\u0660-\u0669\u06F0-\u06F90-9.,\s]+/g, '');
+                // Replace any Arabic decimal points with English decimal points
+                const inputWithEnglishDecimal = input.replace(/[\u066B]/g, '.');
+                // Update the input field with the cleaned input
+                event.target.value = inputWithEnglishDecimal;
+            });
+
+            weight.addEventListener('change', function(event) {
+                // Validate the input
+                const input = event.target.value;
+                if (!input || !/^[\u0660-\u0669\u06F0-\u06F90-9.,\s]+$/.test(input)) {
+                    alert('Please enter a valid weight');
+                    event.target.value = '';
+                    event.preventDefault();
+                }
+            });
+        </script>
+        <script>
+            const height = document.getElementById('height');
+
+            height.addEventListener('input', function(event) {
+                // Remove any non-Arabic or non-English digits or decimal points from the input
+                const input = event.target.value.replace(/[^\u0660-\u0669\u06F0-\u06F90-9.,\s]+/g, '');
+                // Replace any Arabic decimal points with English decimal points
+                const inputWithEnglishDecimal = input.replace(/[\u066B]/g, '.');
+                // Update the input field with the cleaned input
+                event.target.value = inputWithEnglishDecimal;
+            });
+
+            height.addEventListener('change', function(event) {
+                // Validate the input
+                const input = event.target.value;
+                if (!input || !/^[\u0660-\u0669\u06F0-\u06F90-9.,\s]+$/.test(input)) {
+                    alert('Please enter a valid height');
+                    event.target.value = '';
+                    event.preventDefault();
+                }
+            });
+        </script>
+        <script>
+            const neck = document.getElementById('neck');
+
+            neck.addEventListener('input', function(event) {
+                // Remove any non-Arabic or non-English digits or decimal points from the input
+                const input = event.target.value.replace(/[^\u0660-\u0669\u06F0-\u06F90-9.,\s]+/g, '');
+                // Replace any Arabic decimal points with English decimal points
+                const inputWithEnglishDecimal = input.replace(/[\u066B]/g, '.');
+                // Update the input field with the cleaned input
+                event.target.value = inputWithEnglishDecimal;
+            });
+
+            neck.addEventListener('change', function(event) {
+                // Validate the input
+                const input = event.target.value;
+                if (!input || !/^[\u0660-\u0669\u06F0-\u06F90-9.,\s]+$/.test(input)) {
+                    alert('Please enter a valid neck');
+                    event.target.value = '';
+                    event.preventDefault();
+                }
+            });
+        </script>
+        <script>
+            const waist = document.getElementById('waist');
+
+            waist.addEventListener('input', function(event) {
+                // Remove any non-Arabic or non-English digits or decimal points from the input
+                const input = event.target.value.replace(/[^\u0660-\u0669\u06F0-\u06F90-9.,\s]+/g, '');
+                // Replace any Arabic decimal points with English decimal points
+                const inputWithEnglishDecimal = input.replace(/[\u066B]/g, '.');
+                // Update the input field with the cleaned input
+                event.target.value = inputWithEnglishDecimal;
+            });
+
+            waist.addEventListener('change', function(event) {
+                // Validate the input
+                const input = event.target.value;
+                if (!input || !/^[\u0660-\u0669\u06F0-\u06F90-9.,\s]+$/.test(input)) {
+                    alert('Please enter a valid waist');
+                    event.target.value = '';
+                    event.preventDefault();
+                }
+            });
+        </script>
+        <script>
+            const arm = document.getElementById('arm');
+
+            arm.addEventListener('input', function(event) {
+                // Remove any non-Arabic or non-English digits or decimal points from the input
+                const input = event.target.value.replace(/[^\u0660-\u0669\u06F0-\u06F90-9.,\s]+/g, '');
+                // Replace any Arabic decimal points with English decimal points
+                const inputWithEnglishDecimal = input.replace(/[\u066B]/g, '.');
+                // Update the input field with the cleaned input
+                event.target.value = inputWithEnglishDecimal;
+            });
+
+            arm.addEventListener('change', function(event) {
+                // Validate the input
+                const input = event.target.value;
+                if (!input || !/^[\u0660-\u0669\u06F0-\u06F90-9.,\s]+$/.test(input)) {
+                    alert('Please enter a valid arm');
+                    event.target.value = '';
+                    event.preventDefault();
+                }
+            });
+        </script>
+        <script>
+            const days = document.getElementById('days');
+
+            days.addEventListener('input', function(event) {
+                // Remove any non-Arabic or non-English digits or decimal points from the input
+                const input = event.target.value.replace(/[^\u0660-\u0669\u06F0-\u06F90-9.,\s]+/g, '');
+                // Replace any Arabic decimal points with English decimal points
+                const inputWithEnglishDecimal = input.replace(/[\u066B]/g, '.');
+                // Update the input field with the cleaned input
+                event.target.value = inputWithEnglishDecimal;
+            });
+
+            days.addEventListener('change', function(event) {
+                // Validate the input
+                const input = event.target.value;
+                if (!input || !/^[\u0660-\u0669\u06F0-\u06F90-9.,\s]+$/.test(input)) {
+                    alert('Please enter a valid days');
+                    event.target.value = '';
+                    event.preventDefault();
+                }
+            });
+        </script>
+        <!-- <script>
+            function sendwhatsapp() {
+                var phonenumber = "+201158271006";
+                var name
+            }
+        </script> -->
+        <!-- </html> -->
+    </body>
+    <!-- <script src="js/language.js"></script> -->
+
+</html>
