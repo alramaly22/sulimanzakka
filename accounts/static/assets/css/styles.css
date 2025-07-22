@@ -798,28 +798,28 @@ video {
 }
 
 .price1 {
-    background-image: linear-gradient(rgb(0 0 0 / 50%), rgb(0 0 0)), url(../img/personal1.webp);
+    background-image: linear-gradient(rgb(0 0 0 / 45%), rgb(0 0 0 / 64%)), url(../img/personal1.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .price2 {
-    background-image: linear-gradient(rgb(0 0 0 / 50%), rgb(0 0 0)), url(../img/personal2.webp);
+    background-image: linear-gradient(rgb(0 0 0 / 45%), rgb(0 0 0 / 64%)), url(../img/personal2.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .price3 {
-    background-image: linear-gradient(rgb(0 0 0 / 50%), rgb(0 0 0)), url(../img/personal3.webp);
+    background-image: linear-gradient(rgb(0 0 0 / 45%), rgb(0 0 0 / 64%)), url(../img/personal3.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .price4 {
-    background-image: linear-gradient(rgb(0 0 0 / 50%), rgb(0 0 0)), url(../img/personal4.webp);
+    background-image: linear-gradient(rgb(0 0 0 / 45%), rgb(0 0 0 / 64%)), url(../img/personal4.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

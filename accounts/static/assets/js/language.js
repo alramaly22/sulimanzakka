@@ -278,6 +278,17 @@ function updateLanguage() {
         }
     });
 
+    // تغيير اتجاه الموقع حسب اللغة
     document.body.style.direction = language === 'ar' ? 'rtl' : 'ltr';
     document.body.style.textAlign = language === 'ar' ? 'right' : 'left';
+
+    // الأقسام اللي دايمًا LTR
+    let fixedLTRSections = ['testimonial', 'tranding'];
+    fixedLTRSections.forEach(id => {
+        let section = document.getElementById(id);
+        if (section) {
+            section.style.direction = 'ltr';
+            section.style.textAlign = 'left';
+        }
+    });
 }

@@ -179,11 +179,11 @@
                 <div class="custom-options" id="custom-options">
                     <div class="custom-option" data-lang="en" onclick="selectLang('en')">
                         <img src="https://flagcdn.com/us.svg" alt="English" />
-                        <span>English</span>
+                        <span style="color: white;">English</span>
                     </div>
                     <div class="custom-option" data-lang="ar" onclick="selectLang('ar')">
                         <img src="https://flagcdn.com/sa.svg" alt="Arabic" />
-                        <span>العربية</span>
+                        <span style="color: white;">العربية</span>
                     </div>
                 </div>
             </div>
@@ -210,7 +210,7 @@
                         <li class="nav__item"><a href="#about" class="nav__link" data-lang="navabout">About</a></li>
                         <li class="nav__item"><a href="#tranding" class="nav__link" data-lang="navtransformation">Transformation</a></li>
                         <li class="nav__item"><a href="#testimonial" class="nav__link" data-lang="navtestimonial">Testimonial</a></li>
-                        <li class="nav__item"><a href="{% url 'calc' %}" class="nav__link" data-lang="navcalculatot">Calculator</a></li>
+                        <li class="nav__item"><a href="{% url 'calc_html' %}" class="nav__link" data-lang="navcalculatot">Calculator</a></li>
                         <li class="nav__item"><a href="#contact" class="nav__link" data-lang="navcontact">Contact</a></li>
                     </ul>
                 </div>
@@ -662,7 +662,7 @@
                         <li data-lang="calculator5">Instantly get your daily calorie needs and macros breakdown.</li>
                         <li data-lang="calculator6">Use the result to plan your meals and reach your fitness goals!</li>
                     </ul>
-                    <a href="calc.html" class=" button" data-lang="calculator3">Start Now</a>
+                    <a href="{% url 'calc_html' %}" class=" button" data-lang="calculator3">Start Now</a>
                 </div>
 
                 <div class="calculator__image">
@@ -734,7 +734,7 @@
                         <a href="{% url 'about' %}" class="footer__link" data-lang="footer2">About</a>
                     </li>
                     <li>
-                        <a href="{% url 'calc' %}" class="footer__link" data-lang="footer3">Calculator</a>
+                        <a href="{% url 'calc_html' %}" class="footer__link" data-lang="footer3">Calculator</a>
                     </li>
                     <li>
                         <a href="#home" class="footer__link" data-lang="footer4">Home</a>
