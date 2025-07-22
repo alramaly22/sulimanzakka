@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-STRIPE_API_KEY = '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'
+STRIPE_API_KEY = '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'
 
 # Application definition
 

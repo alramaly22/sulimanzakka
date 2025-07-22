@@ -8,7 +8,7 @@ from accounts import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('about/', views.about, name='about'),
-    path('calc/', views.calc, name='calc'),
+    path('calc.html', views.calc, name='calc_html'), 
     path('calc2/', views.calc2, name='calc2'),
     path('create-checkout-session/', views.create_checkout_session, name='create_checkout_session'),
     path('success/', views.success, name='success'),
